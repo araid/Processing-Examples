@@ -1,7 +1,7 @@
 /**
- Quick Cover Flow in Processing
+ Advanced Cover Flow in Processing
  by Adrià Navarro http://adrianavarro.net 
- USING: 3D (openGL), events (controlp5) and animation (ani)
+ USING: 3D (openGL), ui events (controlp5) and animation (ani)
  */
 
 class Cover 

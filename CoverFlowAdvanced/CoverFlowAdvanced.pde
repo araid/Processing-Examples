@@ -1,7 +1,7 @@
 /**
- Quick Cover Flow in Processing
+ Advanced Cover Flow in Processing
  by Adrià Navarro http://adrianavarro.net 
- USING: 3D (openGL), events (controlp5) and animation (ani)
+ USING: 3D (openGL), ui events (controlp5) and animation (ani)
  */
 
 import controlP5.*;
@@ -31,13 +31,13 @@ void setup()
   imgShadow = loadImage("shadow.png");
 
   // Create a cover for every image in the "data" folder
-  File data = new File (sketchPath + "/data/");
+  File data = new File (sketchPath + "/data/covers/");
   String[] names = data.list();
   covers = new ArrayList<Cover>();
   
   for (int i=0; i<names.length; i++) {
     if(names[i].toLowerCase().endsWith(".jpg") || names[i].toLowerCase().endsWith(".png")) {
-    	covers.add(new Cover(names[i]));
+    	covers.add(new Cover("covers/" + names[i]));
 	}
   }
   initCovers();
@@ -58,7 +58,7 @@ void setup()
 /* -------------- DRAW LOOP -------------- */
 void draw() 
 {
-  background(0);
+  background(200);
   hint(ENABLE_DEPTH_TEST);
 
   // move to the center to have easier coordinates
