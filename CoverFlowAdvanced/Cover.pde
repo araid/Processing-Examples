@@ -41,6 +41,8 @@ class Cover
 	    noTint();
 	    popMatrix();
 	}
+	
+	if(this.loading == false && this.img != null) println("PROBLEM: " + this.fileName + " should be unloaded and it's not!");
   }
   
   public void loadCoverImage()

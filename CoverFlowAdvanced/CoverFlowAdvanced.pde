@@ -64,8 +64,12 @@ void draw()
   // move to the center to have easier coordinates
   pushMatrix();
   translate(width / 2, height / 2 ); 
-  for( Cover cover : covers) {
-    cover.drawCover();
+  
+  // only draw covers that are in screen
+  int leftCover  = max(selectedCover - 5, 0);
+  int rightCover = min(selectedCover + 5, covers.size()-1);
+  for( int i=leftCover; i<=rightCover; i++) {
+    covers.get(i).drawCover();
   }
   popMatrix();  
 
