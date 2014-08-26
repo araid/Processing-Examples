@@ -49,8 +49,9 @@ class Cover
   {
 	  if(!this.loading) {
 		  this.loading = true;
-		  this.img = requestImage(this.fileName); //asynchronous loading
-		  println("requesting cover " + this.fileName);
+		  /*this.img = requestImage(this.fileName); //asynchronous loading*/
+		  /*println("requesting cover " + this.fileName);*/
+		  loader.load(this.fileName, this.img);
 	  }
   }
   
@@ -59,6 +60,7 @@ class Cover
 	  if(this.loading) {
 		  this.loading = false;
 	  	  this.img = null;
+  		  loader.unload(this.fileName);
   		  println("unloading cover " + this.fileName);
 	  }
   }
