@@ -16,18 +16,22 @@ Slider slider;
 PImage imgShadow;   
 ArrayList<Cover> covers;
 Ani coverAnimation;
+ImageLoader loader;
 
 int selectedCover = 0;
 int MAX_LOADED_COVERS = 10;	// try a small number to see how this works. try a big one to hide loading/unloading from the user
 float ANI_TIME = 0.5;
 
 /* -------------- INIT -------------- */
-void setup() 
-{
+void setup() {
+	
   size(800, 400, OPENGL);
   smooth();
   noStroke();
 
+  // Init cover loader
+  loader = new ImageLoader();
+  
   imgShadow = loadImage("shadow.png");
 
   // Create a cover for every image in the "data" folder
@@ -58,6 +62,8 @@ void setup()
 /* -------------- DRAW LOOP -------------- */
 void draw() 
 {
+	loader.update();
+	
   background(200);
   hint(ENABLE_DEPTH_TEST);
 
