@@ -1,7 +1,6 @@
 /**
  Advanced Cover Flow in Processing
  by Adrià Navarro http://adrianavarro.net 
- USING: 3D (openGL), ui events (controlp5) and animation (ani)
  */
 
 class Cover 
@@ -12,7 +11,8 @@ class Cover
   PVector position;
   PImage img;
 
-  Cover( String name ) {
+  Cover(String name) 
+  {
     this.position = new PVector(0.0, 0.0, 0.0);
     this.rotationY = 0.0;
 	this.fileName = name;
