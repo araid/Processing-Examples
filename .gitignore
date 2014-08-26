@@ -5,3 +5,4 @@ application.macosx
 application.windows
 *.zip
 build/
+CoverFlowAdvanced/data/covers/
