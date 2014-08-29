@@ -10,7 +10,7 @@ class Cover
   String fileName;
   PVector position;
   PImage img;
-
+  
   Cover(String name) 
   {
     this.position = new PVector(0.0, 0.0, 0.0);
@@ -21,7 +21,8 @@ class Cover
 
   public void drawCover() 
   {
-    if(this.img != null) {
+	  PImage image = loader.getImage(this.fileName);
+    if(image != null) {
 	    pushMatrix();
 	    translate(position.x, position.y, position.z);
 	    rotateY(rotationY);
@@ -29,20 +30,23 @@ class Cover
 	    // Main image
 	    imageMode(CENTER);
 	    noTint();
-	    image(img, 0, 0, 200, 200); 
+	    image(image, 0, 0, 200, 200); 
 
 	    // Reflection
 		pushMatrix();
 		scale(1, -1);
 		tint(50);
-	    image(img, 0, -200, 200, 200);
+	    image(image, 0, -200, 200, 200);
 		popMatrix();
 
 	    noTint();
 	    popMatrix();
 	}
+	else {
+		println("draw something else");
+	}
 	
-	if(this.loading == false && this.img != null) println("PROBLEM: " + this.fileName + " should be unloaded and it's not!");
+	/*if(this.loading == false && this.img != null) println("PROBLEM: " + this.fileName + " should be unloaded and it's not!");*/
   }
   
   public void loadCoverImage()
@@ -51,7 +55,9 @@ class Cover
 		  this.loading = true;
 		  /*this.img = requestImage(this.fileName); //asynchronous loading*/
 		  /*println("requesting cover " + this.fileName);*/
-		  loader.load(this.fileName, this.img);
+		  /*loader.load(this.fileName, this.img);*/
+		  /*this.img = loader.load(this.fileName);*/
+		  loader.load(this.fileName);
 	  }
   }
   
